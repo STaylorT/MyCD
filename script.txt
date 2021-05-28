@@ -59,6 +59,9 @@ Current directory incorrect.
 /hello/there/friend# . ../../..
 
 Resetting to root directory.
+/# . /!!thisWontWork
+
+Non-alphanumeric pathname invalid.
 /# . /goodbye
 
 Updating path..
