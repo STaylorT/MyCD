@@ -5,7 +5,7 @@ Script started on 2021-05-28 13:31:17-04:00
 /# / hello
 
 Invalid Command.
-/# /h  /hello
+/# / /hello
 
 Updating path..
 /hello# /hello /jello
@@ -41,16 +41,22 @@ Moving back 2 directories.
 /hello# / . /there
 
 Updating path..
-/hello/there# ./  ./ ./../......
+/hello/there# . /world
+
+Updating path..
+/hello/there/world# . /there/friend
+
+Updating path..
+/hello/there/friend# . ./../......
 
 Invalid Command.
-/hello/there# . ./../.../.
+/hello/there/friend# . ./../.../.
 
 Invalid Command.
-/hello/there# ../../../..
+/hello/there/friend# ../../../..
 
 Current directory incorrect.
-/hello/there# . ../../..
+/hello/there/friend# . ../../..
 
 Resetting to root directory.
 /# . /goodbye
