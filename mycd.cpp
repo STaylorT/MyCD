@@ -8,8 +8,6 @@
 using namespace std;
 
 #define MAXTOKENS 3
-vector<string> tokens;
-
 string tokenArr[MAXTOKENS];
 
 class Path{
@@ -26,9 +24,18 @@ class Path{
 		pathStr = "/";
 		pathVec = {"/"};
 	}
-	void updatePath(string newPath){
-		
+	int getVecSize(){
+		return pathVec.size();
 	}
+	void pushPathVec(string str){
+		if (pathVec.size() > 1)
+			pathVec.push_back("/");
+		pathVec.push_back(str);
+	}
+	string getVecElem(int idx){
+		return pathVec[idx];
+	}
+	
 	void stepBack(){ 	// go back one directory (..)
 		pathVec.pop_back();
 		syncStr();
@@ -36,7 +43,9 @@ class Path{
 	void syncStr(){ 	// sync string back up with more discrete vector
 		pathStr = "";
 		for(int i = 0; i < pathVec.size();i++){
-			pathStr += pathVec[i];
+
+			pathStr +=  pathVec[i];
+
 		}
 	}
 };
@@ -44,29 +53,102 @@ Path::Path(vector<string> path, string pathStr1){
 	pathVec = path;
 	pathStr = pathStr1;
 }
-//   		### Further Parse if second pathname starts with a dot ###
-void dotCommand(Path path){
+bool isValidPath(string path){
+		return true;
+	}
+	
+void updatePath(vector<string> newPath, Path &path){
+	bool contains = 0;
+	cout << "updating path.." << endl;
+	for (int i = 0; i < path.getVecSize(); i++){
+		for (int j = 0; j <newPath.size(); j++){
+			if (path.getVecElem(i) == newPath[j])
+				contains = 1;
+		}
+	}
+	if (!contains){
+		for (int i = 0; i < newPath.size(); i++){
+			if (isValidPath(newPath[i])){
+				path.pushPathVec(newPath[i]);
+			}
+		}
+	}
+
+	path.syncStr();
+} // End UpdatePath()
+
+
+//   		### Further parse if second pathname starts with a dot (.) ###
+void dotCommand(Path &path){
 	if (tokenArr[1] == ".") // No directory change
 		return;
 	else if (tokenArr[1] == ".."){ // remove previous directory
+		cout << "Moving back one directory." << endl;
 		path.stepBack();
 	}
 		
-} // End of dotCommand
+} // End of dotCommand()
 
-// 		### Further Parse if second pathname starts with slash ###
-void slashCommand(Path path){
 
-} // End of slashCommand
+// 		### Further parse if second pathname starts with slash (/) ###
+void slashCommand(Path &path){
+	vector<string> newPaths; // vector of new paths
+	int j =0; // iterator through second token
+	string temp; // temp string for each Path
+	int switcher = 0; // tell us if when we need to push temp into vector
+	bool onlySlash = 1; // whether or not there are only slashes in 2nd token
+
+	while (tokenArr[1].length() > j){
+		if (tokenArr[1][j] == '/'){
+			j++;
+			if (switcher == 1){
+				newPaths.push_back(temp);
+				temp = "";
+				switcher =0;
+				
+			}
+		}
+		else{
+			temp += tokenArr[1][j];
+			switcher = 1;	
+			onlySlash = 0;
+			j++;
+			
+		}
+	}
+	if (switcher == 1){
+		newPaths.push_back(temp);
+		temp = "";
+		switcher =0;
+				
+	}
+	j--;
+	
+	if (onlySlash){
+		cout << "Resetting to root directory." << endl;
+		path.setPathRoot();
+		return;
+	}
+	
+	else
+		updatePath(newPaths, path);
+		
+		
+} // End of slashCommand()
+
 //  		 #### Parser function to check for simple format conditions ####
-int parser(Path path){
-	if (tokenArr[0].compare(path.getPath()) != 0){
-		cout << path.getPath() << endl;
+int parser(Path &path){
+	if (tokenArr[0].compare(path.getPath()) != 0 && tokenArr[0].compare(".") != 0){
 		cout << "Current directory incorrect." << endl;
 		return -1;
 		}
 	else{
-		switch(tokens[1][0]){
+		if (tokenArr[1] == ""){
+			cout << "No second input" << endl;
+			return -1;
+		}	
+	
+		switch(tokenArr[1][0]){
 			case '.':
 				dotCommand(path);
 				break;
@@ -74,6 +156,7 @@ int parser(Path path){
 				slashCommand(path);
 				return 1;
 			default:
+				cout << "Invalid Command." << endl;
 			break;
 		}
 	}
@@ -89,10 +172,11 @@ int parser(Path path){
 	}
 	*/
 	
-} // End parser function
+} // End of parser()
+
 
 //     	#### Scanner function to parse string into individual tokens ####
-int scanner(string input, Path path){
+int scanner(string input, Path &path){
 	if (input[0] == ' '){
 		cout << "Directory cannot start with space." << endl;
 		return -2;
@@ -124,23 +208,28 @@ int scanner(string input, Path path){
   			tokenArr[i][j] = str1[j];
   		}
     	}
-	for (int i = 0; i < MAXTOKENS; i++){
-		cout << "Token " << i << " " << tokenArr[i] << endl;
-	}
-	parser(path);
+    	if (tokenArr[0] == ""){
+    		cout << "No input." << endl;
+    		return -1;
+    	}
+	int parseResult = parser(path);
+	if (parseResult > 0)
+		return 1;
+	else
+		return -1;
 	return 1;
-} // End scanner function
+} // End of scanner();
 
 int main(int argc, char **argv){
 	string input = "";
 	Path path ({"/"},"/");
-	cout << path.getPath();
-	while (input != "exit"){
+	while (input != "exit" && input!="exit"){
 		input = "";
-		cout << "# ";
-		cout << " ";
+		cout << path.getPath() << "# ";
 		getline(cin,input);
-		scanner(input, path); //run input through a scanner
+		int scanResult = scanner(input, path); //run input through a scanner
+	
+
 	}
 	
 	return 0;
