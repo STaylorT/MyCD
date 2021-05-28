@@ -1,0 +1,18 @@
+/ /hello
+/hello /jello
+. /cello
+. 
+wrong
+. /
+. //////////
+. /hello/jello/cello
+. ..
+. /dunno
+. ../..
+. /MrDailis
+. ../../......
+. ./.././
+. ../../../..
+. /hello
+. /goodbye
+exit
