@@ -22,11 +22,11 @@ Updating path..
 Moving back 2 directories.
 /hello# 
 Updating path..
-/hello/MrDailis# 
+/hello/there# 
 Invalid Command.
-/hello/MrDailis# 
+/hello/there# 
 Invalid Command.
-/hello/MrDailis# 
+/hello/there# 
 Resetting to root directory.
 /# 
 Updating path..
