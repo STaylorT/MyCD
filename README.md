@@ -27,6 +27,7 @@ Since it is a bit annoying to retype the directory after each command, you can t
 - "/" - takes you to root directory.
 - "/dirName" - takes you to dirName within current directory. (**Note: forward slash (/) is required in front of dirName**)
     ~ You can enter multiple directories at once. E.g. ". /dirName1/dirName2/dirName3" is valid.
+    ~ The following overwrite is valid: at directory "/abc/efg". Enter command ". /abc/123" will take you to "/abc/123".
 - "../../.." - moves back x directories, where x = the number of ".."s separated by a "/".
 
 To exit out of the program, type "exit" or "quit" at the command prompt.
