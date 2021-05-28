@@ -5,6 +5,9 @@ Script started on 2021-05-28 13:31:17-04:00
 /# / hello
 
 Invalid Command.
+/#   
+
+No input.
 /# / /hello
 
 Updating path..
