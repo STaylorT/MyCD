@@ -10,6 +10,8 @@ wrong
 . /dunno
 . ../..
 . /there
+. /world
+. /there/friend
 . ../../......
 . ./.././
 . ../../../..
