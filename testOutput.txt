@@ -23,10 +23,14 @@ Moving back 2 directories.
 /hello# 
 Updating path..
 /hello/there# 
+Updating path..
+/hello/there/world# 
+Updating path..
+/hello/there/friend# 
 Invalid Command.
-/hello/there# 
+/hello/there/friend# 
 Invalid Command.
-/hello/there# 
+/hello/there/friend# 
 Resetting to root directory.
 /# 
 Updating path..
