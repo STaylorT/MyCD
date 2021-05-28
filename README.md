@@ -9,7 +9,7 @@
 
 [g++ -o mycd mycd.cpp] and [./mycd] , respectively. mycd takes from stdin.
 
-This program takes input from user and keeps track of an arbitrary path directory. It gives user the ability to move up and down directory path via commands expained below. The program will print the current directory along with a "# " prompt after each command. 
+This program takes input from user and keeps track of an arbitrary path directory. It gives user the ability to move up and down directory path via commands explained below. The program will print the current directory along with a "# " prompt after each command. 
 
 The initial path in the program is "/", the root directory.
 
