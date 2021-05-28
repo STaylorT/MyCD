@@ -1,0 +1,61 @@
+Script started on 2021-05-28 13:31:17-04:00
+g++ -o mycd mycd.cpp
+./mycd
+
+/# / hello
+
+Invalid Command.
+/# /h  /hello
+
+Updating path..
+/hello# /hello /jello
+
+Updating path..
+/hello/jello# . /cello
+
+Updating path..
+/hello/jello/cello# .
+
+No second input
+/hello/jello/cello# wrong
+
+Current directory incorrect.
+/hello/jello/cello# . /
+
+Resetting to root directory.
+/# . //////////
+
+Already at root directory.
+/# . /hello/jello/cello
+
+Updating path..
+/hello/jello/cello# . ..
+
+Moving back one directory.
+/hello/jello# . /dunno
+
+Updating path..
+/hello/jello/dunno# . ../..
+
+Moving back 2 directories.
+/hello# / . /there
+
+Updating path..
+/hello/there# ./  ./ ./../......
+
+Invalid Command.
+/hello/there# . ./../.../.
+
+Invalid Command.
+/hello/there# ../../../..
+
+Current directory incorrect.
+/hello/there# . ../../..
+
+Resetting to root directory.
+/# . /goodbye
+
+Updating path..
+/goodbye# exit
+
+Script done on 2021-05-28 13:34:04-04:00 [COMMAND_EXIT_CODE="0"]
