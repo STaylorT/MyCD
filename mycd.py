@@ -1,5 +1,4 @@
 import sys;
-import re;
 
 def Parser(path1, path2):
     """ Checks if both paths are valid and performs correct 
@@ -16,10 +15,10 @@ def Parser(path1, path2):
             exit("Invalid current path: Non-alphanumeric characters present.")
     # if path2 starts with "/", return to home directory
         if (len(path2) > 0 and path2[0] == "/"):
-             for char in path2:
+            for char in path2:
                  if (char != '/'):
                      exit("Invalid Command")
-        exit("/")
+            exit("/")
      # split current directory into directory/filename tokens
     Path2 = [x for x in path2.split('/') if x.strip()]   
     # iterate over the tokens in path2 to parse command     
