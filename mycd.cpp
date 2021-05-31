@@ -24,25 +24,27 @@ class Path{
 	void setPathRoot(){ 	// reset path to root directory (/)
 		if (pathVec.size() == 1)
 			int b =0;
-			//cout << "\nAlready at root directory."  << endl;
 		else{
-			//cout << "\nResetting to root directory." << endl;
 			pathStr = "/";
 			pathVec = {"/"};
 		}
 	}
+	// return size of path vector
 	int getVecSize(){
 		return pathVec.size();
 	}
+	// push back given string to path vector
 	void pushPathVec(string str){
 		if (pathVec.size() > 1)
 			pathVec.push_back("/");
 		pathVec.push_back(str);
 		syncStr();
 	}
+	// returns a element of path vector specified by given index
 	string getVecElem(int idx){
 		return pathVec[idx];
 	}
+	// trims down path to given index of path vector
 	void cutPath(int i){
 		int j = pathVec.size()-1;
 		for (j; j > i;j--){
@@ -58,14 +60,12 @@ class Path{
 				pathVec.pop_back(); // remove "/"
 			syncStr();
 		}
-		
-			//cout << "\nCannot step back. In root directory." << endl;
 	}
-	void syncStr(){ 	// sync string back up with more discrete vector
+	// sync string back up with more discrete vector
+	void syncStr(){ 	
 		pathStr = "";
 		for(int i = 0; i < pathVec.size();i++){
 			pathStr +=  pathVec[i];
-
 		}
 	}
 };
@@ -103,6 +103,7 @@ int parser(Path &path){
 // End of splitting second path: results in PathVec2
 	if (startWithSlash)
            path.setPathRoot();
+       // looping over the command without the "/"s
 	for (int i = 0; i < pathVec2.size(); i++){
             if(pathVec2[i] == "."){
                 continue;
@@ -121,6 +122,7 @@ int parser(Path &path){
                     }
                         
                  }
+                 // if the given token is valid, check if currpath contains this file/dir
                 if (isAlNum){
                 	for (int k = 0; k < path.getVecSize();k++){
                             if (pathVec2[i] == path.getVecElem(k)){
@@ -130,7 +132,7 @@ int parser(Path &path){
                             } 
                         }
                 }
-                 if (!cutIt){
+                 if (!cutIt){ // simply push this file/directory to the new path
                     path.pushPathVec(pathVec2[i]);  
             		}
 		}
