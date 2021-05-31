@@ -26,9 +26,9 @@ After starting program, you will continuously be given a prompt: [yourCurrentDir
    ~ You can stack these commands on the same line if each command is separated by a "/".
    
    For example, valid commands include:
-   - "abc/def/../123" : >> "/abc" >> "/abc/def" >> "/abc" >> "/abc/123"
-   - "hello/world/../../goodbye" : >> "/hello" >> "/hello/world" >> "/hello" >> "/" >> "/goodbye"
-   - "/abc/." : >> "/" >> "/abc" >> "/abc"
+   - "abc/def/../123" ||| Process:  >> "/abc" >> "/abc/def" >> "/abc" >> "/abc/123"
+   - "hello/world/../../goodbye" ||| Process:  >> "/hello" >> "/hello/world" >> "/hello" >> "/" >> "/goodbye"
+   - "/abc/." ||| Process:  >> "/" >> "/abc" >> "/abc"
 
 To exit out of the program, type "exit" or "quit" at the prompt.
 
