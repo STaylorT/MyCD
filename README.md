@@ -1,6 +1,7 @@
 # MyCD
 **FILES**:
 - mycd.py: Main program simulating Unix-like "cd" command. 
+- test.py: unittest program that tests the output value for the parser function in mycd.py
 
 mycd.py can be ran via windows command line with: [py mycd.py arg1 arg2]
 
