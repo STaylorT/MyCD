@@ -1,39 +1,18 @@
 /# 
-Updating path..
-/hello# 
-Updating path..
-/hello/jello# 
-Updating path..
-/hello/jello/cello# 
-No second input
-/hello/jello/cello# 
-Current directory incorrect.
-/hello/jello/cello# 
-Resetting to root directory.
+/Once# 
+/Once/upon/a/midnight/dreary# 
 /# 
-Already at root directory.
+No such file or directory found.
+/quoth/the/Raven# 
+/quoth/the/Raven/Nevermore# 
 /# 
-Updating path..
-/hello/jello/cello# 
-Moving back one directory.
-/hello/jello# 
-Updating path..
-/hello/jello/dunno# 
-Moving back 2 directories.
-/hello# 
-Updating path..
-/hello/there# 
-Updating path..
-/hello/there/world# 
-Updating path..
-/hello/there/friend# 
-Invalid Command.
-/hello/there/friend# 
-Invalid Command.
-/hello/there/friend# 
-Resetting to root directory.
+/The/Raven/Poe# 
+/It/matters/not/how/strait/the/gate# 
+/It/matters/not/how/charged/with/punishments/the/scroll# 
+/I/am/the/master/of/my/fate# 
+/I/am/the/captain/of/my/soul# 
 /# 
-Updating path..
-/hello# 
-Updating path..
-/hello/goodbye# 
+/Invictus/William/Henley# 
+/Thank/You/For/Listening# 
+/Thank/You/For/Watching# 
+/Goodbye# 
