@@ -35,8 +35,8 @@ def Parser(path1, path2):
             if (len(newPath) < 1):
                 if (len(Path1) > 0):
                     Path1.pop()
-            else:
-                newPath.pop()
+                if (len(newPath) > 0):
+                    newPath.pop()
         elif(tok.isalnum()):
             if (tok in Path1):  
                 for i in range(1,len(Path1)-Path1.index(tok)):
