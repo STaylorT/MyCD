@@ -1,20 +1,17 @@
-/ /hello
-/hello /jello
-. /cello
-. 
-wrong
-. /
-. //////////
-. /hello/jello/cello
-. ..
-. /dunno
-. ../..
-. /there
-. /world
-. /there/friend
-. ../../......
-. ./.././
-. ../../../..
-. /hello
-. /goodbye
+Once
+upon/a/midnight/dreary
+/
+quoth/the/Raven/said/../"Nevermore"
+quote/the/Raven/said/../Nevermore
+/////
+The/Raven///Poe
+/It/matters/not/how/strait/the/gate
+how/charged/with/punishments/the/scroll
+/I/am/the/captain/../master/of/my/fate
+the/captain/of/my/soul
+/
+Invictus///William/Henley
+/Thank/You/For/Listening
+../Watching/.
+/Goodbye
 exit
