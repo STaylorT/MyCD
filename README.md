@@ -1,6 +1,6 @@
 # MyCD
 **FILES**:
-- mycd.py: Main program simulating a simple shell that uses Unix-like "cd" command. 
+- mycd.py: Main program simulating Unix-like "cd" command. 
 
 mycd.py can be ran via windows command line with: [py mycd.py arg1 arg2]
 
@@ -9,12 +9,15 @@ This program takes 2 inputs from the command line (arg1 = currDirectory ; arg2 =
 **Second command string options:**
 - ".." - steps back one directory.
 - "." - stays in current directory.
-- "/" - takes you to root directory.
+- "/" - takes you to root directory. (Or separates commands/files/directories)
 - "dirName" - takes you to dirName within current directory.
    
-   ~ You can enter multiple directories at once. E.g. ". dirName1/dirName2/dirName3" is valid.
+   ~ You can stack commands with a "/" separating them:
    
-   ~ The following overwrite is valid: at directory "/abc/efg". Enter command ". abc/123" will take you to "/abc/123".
+   For example, the following are valid commands:
+   - "abc/def ../123" | Result : "abc/123"
+   - "/abc/def ghi///../klm" | Result: "abc/def/klm"
+   - "/abc/def /klm" | Result: "/klm"
+   - "/abc/def/ghi def/klm" | Result: "abc/def/klm"
    
-   ~  "../../.." - moves back x directories, where x = the number of ".."s separated by a "/". 
 
