@@ -5,16 +5,14 @@ def Parser(path1, path2):
         directory change based on second path name"""
     # check if current directory is valid
     if (len(path1) > 0 and path1[0][:1] != '/'):
-            print('Current directory invalid')
-            return
+            return 'Current directory invalid'
     # list to keep track of path names to add from path2
     newPath = []
     # split current directory into directory/filename tokens
     Path1 = [x for x in path1.split('/') if x.strip()]
     for string in Path1:
         if (not string.isalnum()):
-            print("Invalid current path: Non-alphanumeric characters present.")
-            return
+            return "No such file or directory."
     startWithSlash = 0
     # if path2 starts with "/", return to home directory
     if (len(path2) > 0 and path2[0] == "/"):
@@ -22,8 +20,7 @@ def Parser(path1, path2):
             if (char != '/'):
                 startWithSlash = 1
         if (not startWithSlash):        
-            print("/")
-            return
+            return "/"
      # split current directory into directory/filename tokens
     Path2 = [x for x in path2.split('/') if x.strip()]  
     if (startWithSlash):
@@ -38,8 +35,8 @@ def Parser(path1, path2):
             if (len(newPath) < 1):
                 if (len(Path1) > 0):
                     Path1.pop()
-                if (len(newPath) > 0):
-                    newPath.pop()
+            else:
+                newPath.pop()
         elif(tok.isalnum()):
             if (tok in Path1):  
                 for i in range(1,len(Path1)-Path1.index(tok)):
@@ -50,8 +47,7 @@ def Parser(path1, path2):
             else:
                 newPath.append(tok)
         else:
-            print("No such file or directory")
-            return
+            return "No such file or directory."
     # create new pathname         
     retPath = []
     for str1 in Path1:
@@ -62,14 +58,15 @@ def Parser(path1, path2):
     for char in retPath:
         retStr += char
     if (len(retStr) == 0):
-        print ("/")
+        return "/"
     else:
-        print (retStr)
+        return (retStr)
 
-#   ----------- Main --------------   #
+#   Main -- comment out during test  #
 if (not len(sys.argv) == 3):
     print("Incorrect number of arguments.")
     exit()
 currPathUser = sys.argv[1]
 newPathUser = sys.argv[2]
-Parser(currPathUser,newPathUser)
+output = Parser(currPathUser,newPathUser)
+print(output)
