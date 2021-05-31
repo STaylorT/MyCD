@@ -3,6 +3,7 @@
 - mycd.py: Main program simulating Unix-like "cd" command. 
 - test.py: unittest program that tests the output value for the parser function in mycd.py. ran with [py -m unittest test]
       **note: main program outside of parser() should be commented out when running the test in terminal**
+- testOutput.txt: terminal output when ran test.py with the 12 examples provided.
 
 mycd.py can be ran via windows command line with: [py mycd.py arg1 arg2]
 
