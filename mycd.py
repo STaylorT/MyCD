@@ -5,14 +5,16 @@ def Parser(path1, path2):
         directory change based on second path name"""
     # check if current directory is valid
     if (len(path1) > 0 and path1[0][:1] != '/'):
-            exit('Current directory invalid')
+            print('Current directory invalid')
+            return
     # list to keep track of path names to add from path2
     newPath = []
     # split current directory into directory/filename tokens
     Path1 = [x for x in path1.split('/') if x.strip()]
     for string in Path1:
         if (not string.isalnum()):
-            exit("Invalid current path: Non-alphanumeric characters present.")
+            print("Invalid current path: Non-alphanumeric characters present.")
+            return
     startWithSlash = 0
     # if path2 starts with "/", return to home directory
     if (len(path2) > 0 and path2[0] == "/"):
@@ -20,7 +22,8 @@ def Parser(path1, path2):
             if (char != '/'):
                 startWithSlash = 1
         if (not startWithSlash):        
-            exit("/")
+            print("/")
+            return
      # split current directory into directory/filename tokens
     Path2 = [x for x in path2.split('/') if x.strip()]  
     if (startWithSlash):
@@ -47,7 +50,8 @@ def Parser(path1, path2):
             else:
                 newPath.append(tok)
         else:
-            exit("No such file or directory")
+            print("No such file or directory")
+            return
     # create new pathname         
     retPath = []
     for str1 in Path1:
@@ -64,7 +68,8 @@ def Parser(path1, path2):
 
 #   ----------- Main --------------   #
 if (not len(sys.argv) == 3):
-    sys.exit("Incorrect number of arguments.")
+    print("Incorrect number of arguments.")
+    exit()
 currPathUser = sys.argv[1]
 newPathUser = sys.argv[2]
 Parser(currPathUser,newPathUser)
