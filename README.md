@@ -1,9 +1,9 @@
 # MyCD
 **FILES**:
 - mycd.cpp: Main program simulating a simple shell that uses Unix-like "cd" command. 
-- testInput.txt: Test input file containing most cases. Can be redirected to executable on command line like [./mycd < testInput.txt]
+- testInput.txt: Test input file containing poetic case testing. Can be redirected to executable on command line like [./mycd < testInput.txt]
 - testOutput.txt: Contains output of program when testInput.txt is ran through. [./cd < testInput.txt > textOutput.txt]
-- script.txt: Contains script of linux command window during execution **note: this is probably easier to read than test.Output.txt since it shows input as well**
+- script.txt: Contains script of linux command window during execution **note: this is probably easier to read than test.Output.txt since it shows both input + output**
 
 Simple program simulating Unix-like CD command; mycd.cpp can be compiled and ran via linux command line with:
 
@@ -15,7 +15,7 @@ The initial path in the program is "/", the root directory.
 
 After starting program, you will continuously be given a prompt: [yourCurrentDirectory# ]. You can type a _new directory path_ to change the current directory.
 
-**SYNTAX:** To avoid syntax issues, simply type the new directory at the prompt, without any spaces or tabs.
+**SYNTAX:** To avoid syntax issues, simply type the command or new directory (alphanumeric only) at the prompt, without any spaces or tabs.
 
 **Command Options:**
 - ".." - steps back one directory.
