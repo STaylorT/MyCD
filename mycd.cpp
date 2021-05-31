@@ -54,7 +54,6 @@ class Path{
 	}	
 	void stepBack(){ 	// go back one directory (..)
 		if (pathVec.size() >1){
-			//cout << "\nMoving back one directory." << endl;
 			pathVec.pop_back();
 			if (pathVec.size() > 1)
 				pathVec.pop_back(); // remove "/"
