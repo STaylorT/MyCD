@@ -5,32 +5,30 @@
 - testOutput.txt: Contains output of program when testInput.txt is ran through. [./cd < testInput.txt > textOutput.txt]
 - script.txt: Contains script of linux command window during execution **note: this is probably easier to read than test.Output.txt since it shows input as well**
 
-'Simple' program simulating Unix-like CD command; mycd.cpp can be compiled and ran via linux command line with:
+Simple program simulating Unix-like CD command; mycd.cpp can be compiled and ran via linux command line with:
 
 [g++ -o mycd mycd.cpp] and [./mycd] , respectively. mycd takes from stdin.
 
-This program takes input from user and keeps track of an arbitrary path directory. It gives user the ability to move up and down directory path via commands explained below. The program will print the current directory along with a "# " prompt after each command. 
+This program takes input from user and keeps track of an arbitrary path directory. It gives user the ability to move up and down directory path via commands explained below. The program will print the current directory along with a "# " prompt after each command entered. 
 
 The initial path in the program is "/", the root directory.
 
-After starting program, you will continuously be given a prompt: [yourCurrentDirectory# ]. You can type the _current path_ followed by a _new directory path_ to change the current directory.
+After starting program, you will continuously be given a prompt: [yourCurrentDirectory# ]. You can type a _new directory path_ to change the current directory.
 
-**Note: When you type your first command, your first token (current path) must be "/" (or ".", see below), since it is the initial current path.**
+**SYNTAX:** To avoid syntax issues, simply type the new directory at the prompt, without any spaces or tabs.
 
-Since it is a bit annoying to retype the directory after each command, you can type "." for short as the "current path" for the first command string.
-
-**SYNTAX:** When prompted to type the two tokens, type the current directory string, followed by one space, followed by the new directory string.
-
-**Second command string options:**
+**Command Options:**
 - ".." - steps back one directory.
 - "." - stays in current directory.
-- "/" - takes you to root directory.
+- "/" - takes you to root directory. (seconds as directory/file/command separator)
 - "/dirName" - takes you to dirName within current directory. (**Note: forward slash (/) is required in front of dirName**)
    
-   ~ You can enter multiple directories at once. E.g. ". /dirName1/dirName2/dirName3" is valid.
+   ~ You can stack these commands on the same line if each command is separated by a "/".
    
-   ~ The following overwrite is valid: at directory "/abc/efg". Enter command ". /abc/123" will take you to "/abc/123".
-- "../../.." - moves back x directories, where x = the number of ".."s separated by a "/".
+   For example, valid commands include:
+   - "abc/def/../123" : >> "/abc" >> "/abc/def" >> "/abc" >> "/abc/123"
+   - "hello/world/../../goodbye" : >> "/hello" >> "/hello/world" >> "/hello" >> "/" >> "/goodbye"
+   - "/abc/." : >> "/" >> "/abc" >> "/abc"
 
-To exit out of the program, type "exit" or "quit" at the command prompt.
+To exit out of the program, type "exit" or "quit" at the prompt.
 
