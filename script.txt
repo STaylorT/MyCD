@@ -1,73 +1,19 @@
-Script started on 2021-05-28 13:31:17-04:00
-g++ -o mycd mycd.cpp
-./mycd
-
-/# / hello
-
-Invalid Command.
-/#   
-
-No input.
-/# / /hello
-
-Updating path..
-/hello# /hello /jello
-
-Updating path..
-/hello/jello# . /cello
-
-Updating path..
-/hello/jello/cello# .
-
-No second input
-/hello/jello/cello# wrong
-
-Current directory incorrect.
-/hello/jello/cello# . /
-
-Resetting to root directory.
-/# . //////////
-
-Already at root directory.
-/# . /hello/jello/cello
-
-Updating path..
-/hello/jello/cello# . ..
-
-Moving back one directory.
-/hello/jello# . /dunno
-
-Updating path..
-/hello/jello/dunno# . ../..
-
-Moving back 2 directories.
-/hello# / . /there
-
-Updating path..
-/hello/there# . /world
-
-Updating path..
-/hello/there/world# . /there/friend
-
-Updating path..
-/hello/there/friend# . ./../......
-
-Invalid Command.
-/hello/there/friend# . ./../.../.
-
-Invalid Command.
-/hello/there/friend# ../../../..
-
-Current directory incorrect.
-/hello/there/friend# . ../../..
-
-Resetting to root directory.
-/# . /!!thisWontWork
-
-Non-alphanumeric pathname invalid.
-/# . /goodbye
-
-Updating path..
-/goodbye# exit
-
-Script done on 2021-05-28 13:34:04-04:00 [COMMAND_EXIT_CODE="0"]
+ g++ -o mycd mycd.cpp./mycd
+/# abc
+/abc# 123
+/abc/123# def
+/abc/123/def# ..
+/abc/123# ../../..
+/# hello
+/hello# world
+/hello/world# ../.
+/hello# ,how/are/you
+No such file or directory found.
+/hello# how/are/doing/../you/doing
+/hello/how/are/you/doing# //////
+/# abc/def/ghi
+/abc/def/ghi# ../klm. ///./zxy./../.
+/abc/def/klm# def/kl2   ghi
+/abc/def/ghi# /copy/paste
+/copy/paste# ./../../..
+/# exit
